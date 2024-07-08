@@ -1,0 +1,66 @@
+PROJECT DESCRIPTION:  This project is a user authentication and authorization system developed using Spring Boot and Spring Security. It includes user registration and login functionalities, with secure endpoints using JWT(JSON WEB TOKEN). The system defines roles(e.g., USER, ADMIN) and restricts access to certain endpoints based on roles. USer credenticals and roles are stored in a PostgresSQL database, and password hashing is implemented using BCrypt.
+
+FEATURES:  User Registration, User Login, Role-Based Access Control, JWT Authentication, Pasword Hashing with BCrypt, PostgresSQL Database Integration.
+
+REQUIREMENTS: Java 17, Spring Boot 3.3.1, PostgreSQL, Maven, Postman(API testing).
+
+SETUP INSTRUCTION: git clone https://github.com/GloryUsen/Authentication-System.git                                                                    
+
+CONFIQURE POSTGRESQL: spring.application.name=Authentication.
+
+UPDATE APPLICATION.PROPERTIES: spring.datasource.url=jdbc:postgresql://localhost:5432/authentication
+spring.datasource.username=your_database_username
+spring.datasource.password=your_database_password
+spring.jpa.hibernate.ddl-auto=update
+
+BUILDING AND RUN THE APPLICATION: mvn clean install, mvn spring-boot:run.
+
+API ENDPOINT: 
+User Registration = URL:'/api/v1/auth/register', Method: 'POST', 
+      Request Body{                                                               
+  "email" : "email",
+  "password" : "String",
+  "firstName" : " String",
+  "lastName" : " String",
+  "phoneNumber" : "String",
+  "streetName" : "String",
+  "zipCode" : "String",
+  "city" : " String"
+}
+
+    Response Body : {
+  "message": "Successfully registered",
+  "statusCode" : "200",
+  "data" : "123456"
+}
+
+    USER LOGIN
+URl: '/api/auth/login', Method: 'POST', 
+    Request Body:{
+  "email": "email",
+  "password": "123456"
+}
+    Resoponse Body:
+ {
+  "token": "jwt_token"
+}
+                                                                     
+    SECURED ENDPOINT(ADMIN ONLY).
+URL: '/api/v1/admin', Method: 'GET', Headers = 'Authorization: Bearer jwt_token'.
+ Response Body: {
+  "message": "User content"
+}
+                                                                     
+Contact: ganwana89@gmail.com
+
+                                                                     
+                                                                     
+                                                                     
+
+
+                                                                     
+
+
+
+
+
